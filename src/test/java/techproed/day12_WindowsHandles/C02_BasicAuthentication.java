@@ -28,6 +28,8 @@ public class C02_BasicAuthentication extends TestBase {
 
 
         //Elemental Selenium yazısına tıklayalım
+        driver.findElement(By.xpath("(//a)[2]"));
+
         // Başlığın Elemental Selenium olduğunu doğrulayın
 
     }

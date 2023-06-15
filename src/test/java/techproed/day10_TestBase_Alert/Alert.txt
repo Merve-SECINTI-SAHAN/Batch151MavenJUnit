@@ -1,0 +1,12 @@
+SORU1) Allert Nedir?
+
+    Allert uyarı veya bilgi mesajı içeren penceredir.
+
+    Alert, web sayfalarındaki etkileşimlerde ortaya çıkan uyarı mesajlarıdır.
+Bu mesajlar, kullanıcılara bir hata veya bilgi mesajı gibi çeşitli durumlarda
+bilgi verir.
+
+
+SORU2)Java script alertü nasıl hande ederiz?
+    driverı switchTo() methodu ile alert() methodunu kullanarak geçiş yapar,accept() veya dismiss() methodları
+ile handle edebiliriz.

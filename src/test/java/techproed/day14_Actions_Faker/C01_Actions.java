@@ -47,6 +47,19 @@ public class C01_Actions extends TestBase {
 
        // actions.sendKeys(Keys.HOME).release(); release()--> methodu mouse'ı bırakır.
 
+/*
+her actions dan sonra perform kullanmazsak olay cok seri gerceklesir.
+build kullandigimizda olay milisaniye icinde gerceklesir.
+araya bekle methodu koysak bile java build methodunun oldugu kisimda sayfayi asagi yaparak hizli sekilde gerceklestirir
+
+release() methodu kutuyu bir yerrden sürükleme veya eslestirme gibi konulari yaparken
+mouseyi cekip birakmali sorularda release() methodu kullanilir
+actionsta mouseta sürükleme islemi yapiyorsak serbest birakma islemi icin release() methodu kullanilir.
+ *///build = kur , inşa et, oluştur.
+        //build() -->methodu action'lari birlestirmek icin kullanilan methoddur.Birden fazla olusturdugumuz action
+        //objesini birbirine baglar
+        //release() methodu mouse'u birakir
+
 
     }
 
@@ -60,6 +73,12 @@ public class C01_Actions extends TestBase {
         //sayfanın altına doğru gidelim
         Actions actions = new Actions(driver);
         actions.scrollByAmount(0,1500).perform();
+
+/*
+scrollByAmount(0,1500) kartezyen koordinat sistemi olan yatay ve düsey yönleri x ve y olarak adlandirdigimiz sistemde x=0 ile y=+1500 arasinda
+gidecektir. pozitif(+) yön kuzey secilmistir
+ */
+
 
         //sayfanın üstüne doğru gidelim
         actions.scrollByAmount(0,-1500).perform();

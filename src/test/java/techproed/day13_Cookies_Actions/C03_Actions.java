@@ -15,7 +15,9 @@ public class C03_Actions extends TestBase {
 
         //Sag ust bolumde bulunan “Account & Lists” menüsüne git  “Account” secenegine tikla
         WebElement accountListWE = driver.findElement(By.xpath("//*[@class='nav-line-2 ']"));
+
         Actions actions = new Actions(driver);
+
         actions.moveToElement(accountListWE).perform();
         //moveToElement() methodu ile mouse'u istediğimiz webElementin üzerine götürebiliriz
         bekle(2);

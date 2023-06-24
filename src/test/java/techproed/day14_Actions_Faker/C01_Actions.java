@@ -70,6 +70,8 @@ actionsta mouseta sürükleme islemi yapiyorsak serbest birakma islemi icin rele
         driver.get("https://techproeducation.com");
         driver.findElement(By.xpath("//i[@class='eicon-close']")).click();
         bekle(2);
+
+
         //sayfanın altına doğru gidelim
         Actions actions = new Actions(driver);
         actions.scrollByAmount(0,1500).perform();

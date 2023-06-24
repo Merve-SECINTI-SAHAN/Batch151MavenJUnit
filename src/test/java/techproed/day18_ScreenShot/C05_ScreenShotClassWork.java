@@ -40,7 +40,7 @@ public class C05_ScreenShotClassWork extends TestBase {
         webElementResmi(amazonSonucYazisi);
 
         //tekrar tecpro sayfasına geçelim ve sayfa resmini alalım
-        switchToWindow2(0);
+        switchToWindow(0);
         tumSayfaResmi();
     }
 }

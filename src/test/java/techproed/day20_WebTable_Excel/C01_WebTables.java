@@ -1,4 +1,4 @@
-package techproed.day19_ExtentsReport_WebTables;
+package techproed.day20_WebTable_Excel;
 
 
 import org.junit.Assert;
@@ -9,7 +9,7 @@ import techproed.utilities.TestBase;
 
 import java.util.List;
 
-public class C03_WebTables extends TestBase {
+public class C01_WebTables extends TestBase {
     /*
     WEBTABLE;
         <table> tagı ile başlar
@@ -94,4 +94,14 @@ public class C03_WebTables extends TestBase {
         WebElement satirSutun = driver.findElement(By.xpath("(//tbody)[1]//tr["+satir+"]//td["+sutun+"]"));
        return satirSutun.getText();
     }
+
+
+    //ODEV
+    //C03_WebTables class'ı için aldığımız rapora gidelim
+
+    //Başlığın Extent Report olduğunu test edelim
+    //Rapor temasını dark yapalım
+    //Dashboard bölümüne gidip tabloyu yazdırın
+    // Tester'ın "isminiz" olduğunu doğrulayın
+    // Sayfayı kapatalım
 }

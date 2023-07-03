@@ -1,6 +1,7 @@
 package techproed.day19_ExtentsReport_WebTables;
 
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -23,6 +24,9 @@ public class C03_WebTables extends TestBase {
      */
     @Test
     public void test01() {
+        extentReport("Chrome","WebTable");
+        extentTest = extentReports.createTest("WebTable","Test Raporu");
+
         //    https://the-internet.herokuapp.com/tables sayfasına gidin
         driver.get("https://the-internet.herokuapp.com/tables");
 
@@ -30,17 +34,21 @@ public class C03_WebTables extends TestBase {
         WebElement table1 = driver.findElement(By.xpath("(//table)[1]"));
         System.out.println("Tablo 1");
         System.out.println(table1.getText());
+        extentTest.info("Tablo1 yazdırıldı");
 
 
         //    Task 2 : 3. Satır verilerini yazdırın
         WebElement ucuncuSatir = driver.findElement(By.xpath("(//table)[1]//tr[3]"));
         System.out.println("*********************************************");
         System.out.println(ucuncuSatir.getText());
+        extentTest.info("3.satır verileri yazdırıldı");
 
         //    Task 3 : Son satırın verilerini yazdırın
         WebElement sonSatir = driver.findElement(By.xpath("(//tbody)[1]//tr[last()]"));
-        //last() --> istenilene göre son satir yada sütün bilgilerini verir
+                                                                       //last() --> istenilene göre
+                                                                      // son satir yada sütün bilgilerini verir
         System.out.println("1. Tablo Son Satir Bilgileri : "+sonSatir.getText());
+        extentTest.info("Son satır verileri yazdırıldı");
 
         //    Task 4 : 5. Sütun verilerini yazdırın
         System.out.println("**********************************");
@@ -48,28 +56,42 @@ public class C03_WebTables extends TestBase {
         System.out.println(besinciBaslik.getText());//-->5. sütun başlığı
         List<WebElement> besinciSutun = driver.findElements(By.xpath("(//tbody)[1]//td[5]"));
         besinciSutun.forEach(t-> System.out.println(t.getText()));
+        extentTest.info("5.sütun verileri yazdırıldı");
 
         //    Task 5 : 3. Satırdaki 1. ve 2. sütun bilgilerini yazdırınız
         System.out.println("**********************************");
         List<WebElement> ucuncuSatirr = driver.findElements(By.xpath("(//tbody)[1]//tr[3]//td[position()>=1 and position()<=2]"));
-        ucuncuSatirr.forEach(t-> System.out.print(t.getText()+"\t"));
+                                                                                    //1.tablo    3.satır            1.ve 2.satır arasındaki veriler
+        ucuncuSatirr.forEach(t-> System.out.print(t.getText()+"\t")); //--> \t bir tab boşluk bırakarak yazdırır
+        extentTest.info("3. Satırdaki 1. ve 2. sütun bilgileri yazdırıldı");
+
 
         //    Task 6 : Iki parametreli bir Java metodu oluşturalım: printData
         //    Parameter 1 = satır numarası
         //    Parameter 2 = sütun numarası
         //    printData(2,3);  => 2. satır, 3. sütundaki veriyi yazdırsın.
+
         System.out.println();
-        WebElement satirSutun = driver.findElement(By.xpath("(//tbody)[1]//tr[2]//td[3]"));//fbach@yahoo.com
-        printData(2,3);
-        printData(3,2);
+      //  WebElement satirSutun = driver.findElement(By.xpath("(//tbody)[1]//tr[2]//td[3]"));//fbach@yahoo.com
+        // printData(2,3); => 2. satır, 3.sütun bilgisini yazdır-- methodu java otomatik oluşturuyor
+        printData(2,3); //Buraya hangi sayıları girersek methoddan o verileri getirecek
+
+        extentTest.info("2. Satır 3 sütun bilgileri yazdırıldı");
 
         //3. satir 2. sütun bilgisinin Jack olup olmadığını doğrulayın
+        printData(3,2);
+        String actualData= printData(3,2);
+        String expectedData= "Jack";
+        Assert.assertNotEquals(expectedData,actualData);
+        extentTest.fail("3.satır 2.sütun bilgisinin Jasen olduğu görüldü");
+        extentTest.pass("Sayfa kapatıldı");
+        extentReports.flush();
 
 
     }
 
-    private void printData(int satir, int sutun) {
+    private String printData(int satir, int sutun) { //tekrar tekrar yazmamak için method oluşturduk.
         WebElement satirSutun = driver.findElement(By.xpath("(//tbody)[1]//tr["+satir+"]//td["+sutun+"]"));
-        System.out.println(satirSutun.getText());
+       return satirSutun.getText();
     }
 }

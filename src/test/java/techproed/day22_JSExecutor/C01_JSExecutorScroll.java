@@ -24,34 +24,39 @@ yaparız
 
         // "We Offer" elementi görünür olacak şekilde üzerine scroll et ve ekran görüntüsünü al
        WebElement weofferWE= driver.findElement(By.xpath("//*[.='we offer']"));
-        JavascriptExecutor js= (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true)",weofferWE);
+        //js.executeScript("arguments[0].scrollIntoView(true)",weofferWE); bunun yerine method kullandık
+        jsScrollWE(weofferWE);
         tumSayfaResmi();
 
         // Aynı sayfada "Enroll Free "elementi görünür olacak sekilde scroll et ve ekran görüntüsünü al
         WebElement enrollFreeWE= driver.findElement(By.xpath("//*[.='Enroll Free Course']"));
-        js.executeScript("arguments[0].scrollIntoView(true)",enrollFreeWE);
+        //js.executeScript("arguments[0].scrollIntoView(true)",enrollFreeWE); -->bunun yerine method kullandık
+        jsScrollWE(enrollFreeWE);
         bekle(2);
         tumSayfaResmi();
 
         //Aynı sayfada "WHY US?" elementi görünür olacak şekilde scroll et ve ekran görüntüsünü al
         WebElement whyUsWE = driver.findElement(By.xpath("//*[text()='WHY US?']"));
-        js.executeScript("arguments[0].scrollIntoView(true);",whyUsWE);
+        //js.executeScript("arguments[0].scrollIntoView(true);",whyUsWE);-->bunun yerine method kullandık
+        jsScrollWE(whyUsWE);
         bekle(2);
         tumSayfaResmi();
 
         //Aynı sayfada tekrar "Enroll Free" elementi görünür olacak şekilde scroll et ve ekran görüntüsünü al
-        js.executeScript("arguments[0].scrollIntoView(true);",enrollFreeWE);
+       // js.executeScript("arguments[0].scrollIntoView(true);",enrollFreeWE);-->bunun yerine method kullandık
+        jsScrollWE(enrollFreeWE);
         bekle(2);
         tumSayfaResmi();
 
 
         //Sayfayı en alta scroll yapalım
-        js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+       // js.executeScript("window.scrollTo(0,document.body.scrollHeight)");-->bunun yerine method kullandık
+        scrollEnd();
         bekle(2);
 
         // Sayfayi en üste scroll yapalım
-        js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
+       // js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");-->bunun yerine method kullandık
+        scrollHome();
 
     }
 

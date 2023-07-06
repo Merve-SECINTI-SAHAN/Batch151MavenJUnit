@@ -211,5 +211,22 @@ public abstract class TestBase {
         }
     }
 
+    //JS Scroll WE Method
+    public void jsScrollWE(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);",element);
+    }
+
+    //JS Scroll END Method(Sayfanın altına)
+    public void scrollEnd(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+    }
+
+    //JS Scroll HOME Method(Sayfanın üstüne)
+    public void scrollHome(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
+    }
 
 }

@@ -14,7 +14,6 @@ public class Odev3 extends TestBase {
     public void test01() {
         driver.get(" https://www.mercedes-benz.com.tr/?group=all&subgroup=see-all&view=BODYTYPE");
 
-
     }
 }
 

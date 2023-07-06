@@ -24,7 +24,7 @@ public class C02_SetAttribute extends TestBase {
          */
         WebElement aramaKutusu = driver.findElement(By.xpath("//*[@type='search']"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].value='QA'",aramaKutusu);//-->value attribute değer olarak QA yazdır
+        js.executeScript("arguments[0].value='QA'", aramaKutusu);//-->value attribute değer olarak QA yazdır
 
     }
 
@@ -37,7 +37,7 @@ public class C02_SetAttribute extends TestBase {
 
         //Arama kutusuna QA yaz
         WebElement aramaKutusu = driver.findElement(By.xpath("//*[@type='search']"));
-        jsSendKeys("Java",aramaKutusu);
+        jsSendKeys("Java", aramaKutusu);
 
     }
 
@@ -55,7 +55,7 @@ public class C02_SetAttribute extends TestBase {
          */
         WebElement aramaKutusu = driver.findElement(By.xpath("//*[@type='search']"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].setAttribute('value','QA')",aramaKutusu);
+        js.executeScript("arguments[0].setAttribute('value','QA')", aramaKutusu);
     }
 
     @Test
@@ -68,8 +68,21 @@ public class C02_SetAttribute extends TestBase {
         //Arama kutusuna QA yaz
         WebElement aramaKutusu = driver.findElement(By.xpath("//*[@type='search']"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].setAttribute('id','erol')",aramaKutusu);
+        js.executeScript("arguments[0].setAttribute('id','erol')", aramaKutusu);
         //-->elementor-search-form-9f26725 normal de id atribute değeri
         driver.findElement(By.id("erol")).sendKeys("Java");
+    }
+
+    @Test
+    public void test05() {
+        //Techpro education ana sayfasina git
+        driver.get("https://techproeducation.com");
+        bekle(2);
+        driver.findElement(By.xpath("//i[@class='eicon-close']")).click();
+
+        //Arama kutusuna QA yaz
+        WebElement aramaKutusu = driver.findElement(By.xpath("//*[@type='search']"));
+        jsSetAttribute("value", "QA", aramaKutusu);//-->Method ile attribute değerini set ettik
+
     }
 }

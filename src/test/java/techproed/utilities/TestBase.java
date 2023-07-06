@@ -228,5 +228,10 @@ public abstract class TestBase {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
     }
+    //JS SendKeys() Method
+    public void jsSendKeys(String text,WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].value='"+text+"'",element);
+    }
 
 }

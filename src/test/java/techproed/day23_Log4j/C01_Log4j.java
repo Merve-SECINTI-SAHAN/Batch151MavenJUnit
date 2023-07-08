@@ -6,8 +6,6 @@ import org.junit.Test;
 
 public class C01_Log4j {
 
-    @Test
-    public void test01() {
          /*
         Log4j system.out.println gibi her test adiminda bilgilendirme yapmamiza yarayan bir api' dir.
             Log4j ile bu bilgilendirmeleri hem konsolda tarih saat olarak hem de src>main>resources icine
@@ -17,6 +15,9 @@ public class C01_Log4j {
         src>mainZresources içine koyduğumuz Log4j.xml dosyasındaki kodlara pdf deki adresten
         ulaşabilirsiniz.
          */
+
+    @Test
+    public void test01() {
 
         Logger logger= LogManager.getLogger(C01_Log4j.class);
         logger.info("INFO");

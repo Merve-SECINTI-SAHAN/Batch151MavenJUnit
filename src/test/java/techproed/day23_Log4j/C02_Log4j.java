@@ -19,6 +19,6 @@ public class C02_Log4j extends TestBase {
 
         //Baslığın Egitim içerdigine dogrulayalım
         Assert.assertFalse(driver.getTitle().contains("Egitim"));
-        logger.info("Sayfa başlığı Egitim yazısı içermiyor");
+        logger.error("Sayfa başlığı Egitim yazısı içermiyor");
     }
 }

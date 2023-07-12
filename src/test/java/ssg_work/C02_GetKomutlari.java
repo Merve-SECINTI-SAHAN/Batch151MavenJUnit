@@ -1,4 +1,4 @@
-package ssg;
+package ssg_work;
 
 import org.junit.Test;
 import techproed.utilities.TestBase;
